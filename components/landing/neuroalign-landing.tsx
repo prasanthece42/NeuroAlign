@@ -220,12 +220,15 @@ function HeroSection() {
           >
             You wake up motivated. But somewhere between notifications, stress, scrolling, work,
             pressure, and mental exhaustion... you lose connection with the person you want to
-            become.
+            become. NeuroAlign is a mobile app designed to help you find your way back.
           </motion.p>
           <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:items-center sm:gap-5">
             <PrimaryButton href="#early-access">Join Early Access</PrimaryButton>
             <GhostButton href="#method">Learn More</GhostButton>
           </motion.div>
+          <motion.p variants={fadeUp} className="mt-4 text-[13px] font-semibold uppercase tracking-[0.16em] text-[#7A1F2B]">
+            Coming soon for iOS and Android.
+          </motion.p>
           <motion.div variants={fadeUp} className="mt-12 flex items-start gap-4 sm:mt-16">
             <LogoMark small />
             <p className="text-[15px] leading-[1.6] text-[#15110D]">
@@ -400,8 +403,9 @@ function AppShowcaseSection() {
               Powerful transformation.
             </h2>
             <p className="mt-6 text-[16px] leading-[1.65] text-[#756A5E] sm:mt-7 sm:text-[17px]">
-              NeuroAlign combines neuroscience-backed practices with intuitive tools to help you
-              become mentally aligned with the life you want to create.
+              NeuroAlign is a daily mobile companion for iOS and Android, combining
+              neuroscience-backed practices with intuitive tools for calmer focus and aligned
+              action.
             </p>
             <a
               href="#early-access"
@@ -528,7 +532,8 @@ function FinalCtaSection() {
               Train your mind to support your future.
             </h2>
             <p className="mt-5 max-w-[430px] text-[16px] leading-[1.65] text-[#756A5E] sm:mt-6 sm:text-[17px]">
-              Join the early NeuroAlign movement. Protect your attention. Align with your future.
+              Join early access for the NeuroAlign iOS and Android launch. Protect your attention.
+              Align with your future.
             </p>
             <div className="mt-10 flex items-center gap-4">
               <LogoMark />
