@@ -10,12 +10,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "NeuroAlign | Train Your Mind to Support Your Future",
-    template: "%s | NeuroAlign",
-  },
+  title: "NeuroAlign",
+  metadataBase: new URL("https://neuroalign.app"),
   description:
-    "A neuroscience-inspired iOS and Android mobile app for calmer focus, emotional clarity, and aligned action.",
+    "A neuroscience-inspired app for ambitious people who feel mentally overloaded.",
   applicationName: "NeuroAlign",
   keywords: [
     "NeuroAlign",
@@ -29,18 +27,25 @@ export const metadata: Metadata = {
   authors: [{ name: "NeuroAlign" }],
   creator: "NeuroAlign",
   openGraph: {
-    title: "NeuroAlign | Train Your Mind to Support Your Future",
-    description:
-      "A neuroscience-inspired iOS and Android mobile app for calmer focus, emotional clarity, and aligned action.",
+    title: "NeuroAlign",
+    description: "Your mind was never designed for this much noise.",
+    url: "https://neuroalign.app",
     siteName: "NeuroAlign",
-    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
     locale: "en_US",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "NeuroAlign | Train Your Mind to Support Your Future",
-    description:
-      "A neuroscience-inspired iOS and Android mobile app for calmer focus, emotional clarity, and aligned action.",
+    title: "NeuroAlign",
+    description: "Your mind was never designed for this much noise.",
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
