@@ -26,9 +26,9 @@ const blogPosts = [
 ];
 
 export const metadata: Metadata = {
-  title: "Blog | NeuroAlign",
+  title: "Blog",
   description:
-    "Notes from NeuroAlign on attention, nervous system regulation, future-self identity, and aligned action.",
+    "Notes from NeuroAlign on attention, nervous system regulation, future-self identity, and aligned action for the iOS and Android app.",
 };
 
 export default function BlogPage() {

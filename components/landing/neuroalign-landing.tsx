@@ -120,7 +120,7 @@ const stagger: Variants = {
 
 export function NeuroAlignLanding() {
   return (
-    <main className="premium-noise min-h-screen overflow-hidden bg-[#F7F1E8] text-[#15110D]">
+    <main className="premium-noise min-h-screen overflow-hidden bg-[linear-gradient(180deg,#F7F1E8_0%,#FFF8EE_34%,#F7F1E8_68%,#EFE2D1_100%)] text-[#15110D]">
       <Navbar />
       <HeroSection />
       <ProblemSection />
@@ -205,22 +205,23 @@ function HeroSection() {
           className="relative z-10 max-w-[680px] pt-4"
         >
           <motion.p variants={fadeUp} className="section-label">
-            For ambitious people who feel mentally overloaded
+            FOR AMBITIOUS PEOPLE WHO FEEL MENTALLY OVERLOADED
           </motion.p>
           <motion.h1
             variants={fadeUp}
             className="mt-5 max-w-[680px] text-[42px] font-bold leading-[1.05] tracking-[-0.045em] text-[#15110D] sm:text-[58px] lg:text-[72px]"
           >
-            Your mind wasn&apos;t built for this.{" "}
-            <span className="text-[#7A1F2B]">But your goals still matter.</span>
+            Your mind was never designed for this much noise.
           </motion.h1>
           <motion.p
             variants={fadeUp}
             className="mt-6 max-w-[480px] text-[16px] leading-[1.65] text-[#3B332C] sm:mt-7 sm:text-[18px]"
           >
-            You wake up motivated. But somewhere between notifications, stress, scrolling, work,
-            pressure, and mental exhaustion... you lose connection with the person you want to
-            become. NeuroAlign is a mobile app designed to help you find your way back.
+            Somewhere between notifications, stress, scrolling, work, and mental exhaustion... you
+            lose connection with the person you want to become.
+            <br />
+            <br />
+            NeuroAlign helps you feel calmer, clearer, and focused again.
           </motion.p>
           <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:items-center sm:gap-5">
             <PrimaryButton href="#early-access">Join Early Access</PrimaryButton>
@@ -245,7 +246,9 @@ function HeroSection() {
 
 function ProblemSection() {
   return (
-    <Section id="science" className="border-y border-[rgba(122,31,43,0.08)] bg-[#FFF8EE]/48 py-16 md:py-20 lg:py-28">
+    <Section id="science" className="relative py-16 md:py-20 lg:py-28">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#F7F1E8] to-transparent" />
+      <div className="pointer-events-none absolute -right-24 top-14 h-72 w-72 rounded-full bg-[rgba(217,181,139,0.18)] blur-3xl" />
       <Container>
         <motion.div
           variants={stagger}
@@ -336,7 +339,9 @@ function PossibilitySection() {
 
 function SystemSection() {
   return (
-    <Section id="method" className="border-y border-[rgba(122,31,43,0.08)] bg-[#FFF8EE]/52 py-16 md:py-20 lg:py-28">
+    <Section id="method" className="relative py-16 md:py-20 lg:py-28">
+      <div className="pointer-events-none absolute -left-28 top-10 h-80 w-80 rounded-full bg-[rgba(122,31,43,0.07)] blur-3xl" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#FFF8EE]/60 to-transparent" />
       <Container>
         <motion.div
           variants={stagger}
@@ -372,7 +377,7 @@ function SystemSection() {
                   <Icon name={step.icon as IconName} className="h-8 w-8 text-[#7A1F2B]" />
                 </div>
                 <h3 className="mt-6 text-[20px] font-semibold leading-[1.15] tracking-[-0.03em]">{step.title}</h3>
-                <p className="mx-auto mt-3 max-w-[240px] text-[15px] leading-[1.6] text-[#756A5E] xl:text-[13px]">
+                <p className="mx-auto mt-3 max-w-[240px] text-[15px] leading-[1.6] text-[#756A5E] xl:text-[14px]">
                   {step.text}
                 </p>
               </motion.div>
@@ -387,6 +392,7 @@ function SystemSection() {
 function AppShowcaseSection() {
   return (
     <Section id="how-it-works" className="relative py-16 md:py-20 lg:py-28">
+      <div className="pointer-events-none absolute right-[-10%] top-0 h-[420px] w-[420px] rounded-full bg-[rgba(217,181,139,0.18)] blur-3xl" />
       <Container>
         <motion.div
           variants={stagger}
@@ -438,7 +444,7 @@ function AppShowcaseSection() {
 
 function TruthSection() {
   return (
-    <Section className="relative min-h-[720px] overflow-hidden border-y border-[rgba(122,31,43,0.08)] py-16 md:py-20 lg:min-h-screen lg:py-28">
+    <Section className="relative min-h-[720px] overflow-hidden py-16 md:py-20 lg:min-h-screen lg:py-28">
       <Image
         src="/truth-cinematic.png"
         alt=""
@@ -518,6 +524,8 @@ function FinalCtaSection() {
 
   return (
     <Section id="early-access" className="relative py-16 md:py-20 lg:py-28">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-[#F7F1E8] to-transparent" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[rgba(122,31,43,0.08)] blur-3xl" />
       <Container>
         <motion.div
           variants={stagger}
@@ -595,7 +603,7 @@ function FinalCtaSection() {
 
 function Footer() {
   return (
-    <footer className="border-t border-[rgba(122,31,43,0.1)] bg-[#EFE2D1]/60 py-10 sm:py-12">
+    <footer className="bg-[linear-gradient(180deg,rgba(247,241,232,0)_0%,rgba(239,226,209,0.72)_100%)] py-10 sm:py-12">
       <Container>
         <div className="flex flex-col items-center text-center">
           <div className="flex items-center gap-4">
