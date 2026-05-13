@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Image from "next/image";
+import type { FormEvent } from "react";
 import { useEffect, useState } from "react";
 
 const navItems = [
@@ -476,6 +477,41 @@ function TruthSection() {
 }
 
 function FinalCtaSection() {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("loading");
+    setMessage("");
+
+    try {
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = (await response.json()) as { message?: string };
+
+      if (!response.ok) {
+        setStatus("error");
+        setMessage(data.message ?? "Something went wrong. Please try again.");
+        return;
+      }
+
+      setStatus("success");
+      setMessage(data.message ?? "You are on the early access list.");
+      setEmail("");
+    } catch {
+      setStatus("error");
+      setMessage("Something went wrong. Please try again.");
+    }
+  }
+
   return (
     <Section id="early-access" className="relative py-16 md:py-20 lg:py-28">
       <Container>
@@ -505,23 +541,38 @@ function FinalCtaSection() {
           </motion.div>
 
           <motion.div variants={fadeUp} className="glass-card rounded-[28px] p-5 sm:rounded-[32px] sm:p-6">
-            <form className="grid gap-3 sm:grid-cols-[1fr_auto]">
+            <form className="grid gap-3 sm:grid-cols-[1fr_auto]" onSubmit={handleSubmit}>
               <label className="sr-only" htmlFor="email">
                 Email address
               </label>
               <input
                 id="email"
                 type="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
                 placeholder="Enter your email"
+                required
+                disabled={status === "loading"}
                 className="h-[52px] rounded-full border border-[rgba(122,31,43,0.11)] bg-[#FFF8EE]/82 px-5 text-[15px] outline-none transition placeholder:text-[#A59686] focus:border-[rgba(122,31,43,0.42)] focus:ring-4 focus:ring-[rgba(122,31,43,0.1)] sm:h-[56px]"
               />
               <button
-                type="button"
-                className="h-[52px] rounded-full bg-[#7A1F2B] px-8 text-[14px] font-semibold text-white shadow-[0_16px_38px_rgba(122,31,43,0.22)] transition hover:-translate-y-0.5 hover:bg-[#8C2533] active:translate-y-0 sm:h-[56px]"
+                type="submit"
+                disabled={status === "loading"}
+                className="h-[52px] rounded-full bg-[#7A1F2B] px-8 text-[14px] font-semibold text-white shadow-[0_16px_38px_rgba(122,31,43,0.22)] transition hover:-translate-y-0.5 hover:bg-[#8C2533] active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-70 sm:h-[56px]"
               >
-                Join Early Access <span aria-hidden="true">→</span>
+                {status === "loading" ? "Joining..." : "Join Early Access"}{" "}
+                <span aria-hidden="true">→</span>
               </button>
             </form>
+            {message ? (
+              <p
+                className={`mt-4 text-[13px] font-medium ${
+                  status === "success" ? "text-[#7A1F2B]" : "text-[#8C2533]"
+                }`}
+              >
+                {message}
+              </p>
+            ) : null}
             <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {trustItems.map((item) => (
                 <div key={item} className="flex items-center gap-2 text-[12px] font-medium text-[#756A5E]">
